@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Stock Market</string>
+    <string name="convert_from">Convert From</string>
+    <string name="convert_to">Convert To</string>
+</resources>
