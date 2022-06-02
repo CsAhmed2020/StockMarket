@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.stockmarket.domain.model.IntradayInfo
+import com.example.stockmarket.ui.theme.SymbolColor
 import kotlin.math.round
 import kotlin.math.roundToInt
 
@@ -19,7 +20,7 @@ import kotlin.math.roundToInt
 fun StockChart(
     modifier: Modifier = Modifier,
     infos: List<IntradayInfo> = emptyList(),
-    graphColor: Color = Color.Green
+    graphColor: Color = SymbolColor
 ) {
 
     val spacing = 100f

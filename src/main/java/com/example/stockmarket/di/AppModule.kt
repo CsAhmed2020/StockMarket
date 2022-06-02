@@ -2,7 +2,7 @@ package com.example.stockmarket.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.stockmarket.common.ProductionDispatcherProvider
+import com.example.stockmarket.common.currencyUtil.ProductionDispatcherProvider
 import com.example.stockmarket.data.local.StockDatabase
 import com.example.stockmarket.data.remote.RemoteDataSourceImpl
 import com.example.stockmarket.data.remote.StockApi

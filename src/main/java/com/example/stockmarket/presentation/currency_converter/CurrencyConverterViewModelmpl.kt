@@ -2,10 +2,10 @@ package com.example.stockmarket.presentation.currency_converter
 
 import android.util.Log
 import com.example.stockmarket.application.BaseLogic
-import com.example.stockmarket.common.DispatcherProvider
-import com.example.stockmarket.common.ResultWrapper
-import com.example.stockmarket.common.egyCurrency
-import com.example.stockmarket.common.usdCurrency
+import com.example.stockmarket.common.currencyUtil.DispatcherProvider
+import com.example.stockmarket.common.currencyUtil.ResultWrapper
+import com.example.stockmarket.common.currencyUtil.egyCurrency
+import com.example.stockmarket.common.currencyUtil.usdCurrency
 import com.example.stockmarket.domain.model.currency_converter.Currency
 import com.example.stockmarket.domain.repository.ICurrencyRepository
 import com.example.stockmarket.presentation.currency_converter.components.CurrencyConverterEffect

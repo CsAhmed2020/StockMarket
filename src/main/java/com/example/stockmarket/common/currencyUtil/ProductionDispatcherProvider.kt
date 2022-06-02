@@ -1,6 +1,5 @@
-package com.example.stockmarket.common
+package com.example.stockmarket.common.currencyUtil
 
-import com.example.stockmarket.common.DispatcherProvider
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext
 

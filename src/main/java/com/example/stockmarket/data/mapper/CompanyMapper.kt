@@ -5,6 +5,8 @@ import com.example.stockmarket.data.remote.dto.CompanyInfoDto
 import com.example.stockmarket.domain.model.CompanyInfo
 import com.example.stockmarket.domain.model.CompanyListing
 
+//extension functions convert between model and entity
+
 fun CompanyListingEntity.toCompanyListing(): CompanyListing {
     return CompanyListing(
         name = name,
@@ -27,6 +29,9 @@ fun CompanyInfoDto.toCompanyInfo(): CompanyInfo {
         description = description ?: "",
         name = name ?: "",
         country = country ?: "",
-        industry = industry ?: ""
+        industry = industry ?: "",
+        peRatio = peRatio ?: "",
+        pegRatio = pegRatio ?: "",
+        eps = eps ?: ""
     )
 }

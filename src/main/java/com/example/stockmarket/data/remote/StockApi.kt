@@ -7,8 +7,20 @@ import retrofit2.http.Query
 
 interface StockApi {
 
+    //Summary of IBM
+    //https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IBM&apikey=KQNM89KA6DBLKPRO
+
+    //Intraday of IBM
+    //https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo
+
+
+    companion object {
+        const val API_KEY = "KQNM89KA6DBLKPRO"
+        const val BASE_URL = "https://alphavantage.co"
+    }
+
     @GET("query?function=LISTING_STATUS")
-    suspend fun getListings(
+    suspend fun getCompanyListing(
         @Query("apikey") apiKey: String = API_KEY
     ): ResponseBody
 
@@ -24,8 +36,5 @@ interface StockApi {
         @Query("apikey") apiKey: String = API_KEY
     ): CompanyInfoDto
 
-    companion object {
-        const val API_KEY = "KQNM89KA6DBLKPRO"
-        const val BASE_URL = "https://alphavantage.co"
-    }
+
 }

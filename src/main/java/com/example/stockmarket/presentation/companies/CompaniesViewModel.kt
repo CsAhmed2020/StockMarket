@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.stockmarket.domain.repository.StockRepository
-import com.example.stockmarket.common.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -49,18 +48,18 @@ class CompaniesViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             repository
-                .getCompanyListings(fetchFromRemote, query)
+                .getCompanyListing(fetchFromRemote, query)
                 .collect { result ->
                     when (result) {
-                        is Resource.Success -> {
+                        is com.example.stockmarket.common.stockUtil.Result.Success -> {
                             result.data?.let { listings ->
                                 state = state.copy(
                                     companies = listings
                                 )
                             }
                         }
-                        is Resource.Error -> Unit
-                        is Resource.Loading -> {
+                        is com.example.stockmarket.common.stockUtil.Result.Error -> Unit
+                        is com.example.stockmarket.common.stockUtil.Result.Loading -> {
                             state = state.copy(isLoading = result.isLoading)
                         }
                     }

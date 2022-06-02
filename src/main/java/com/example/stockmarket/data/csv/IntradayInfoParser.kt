@@ -1,8 +1,5 @@
 package com.example.stockmarket.data.csv
 
-import android.os.Build
-import android.util.Log
-import androidx.annotation.RequiresApi
 import com.example.stockmarket.data.mapper.toIntradayInfo
 import com.example.stockmarket.data.remote.dto.IntradayInfoDto
 import com.example.stockmarket.domain.model.IntradayInfo
@@ -12,26 +9,25 @@ import kotlinx.coroutines.withContext
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.time.LocalDate
-import java.time.LocalDateTime
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class IntradayInfoParser @Inject constructor(): CSVParser<IntradayInfo> {
+class IntradayInfoParser @Inject constructor(): CsvParser<IntradayInfo> {
 
 
-    override suspend fun parse(stream: InputStream): List<IntradayInfo> {
-        val csvReader = CSVReader(InputStreamReader(stream))
+    override suspend fun parse(inputStream: InputStream): List<IntradayInfo> {
+        val csvReader = CSVReader(InputStreamReader(inputStream))
         return withContext(Dispatchers.IO) {
             csvReader
                 .readAll()
-                .drop(1)
+                .drop(1) /** drop count column */
                 .mapNotNull { line ->
-                    val timestamp = line.getOrNull(0) ?: return@mapNotNull null
+                    val time = line.getOrNull(0) ?: return@mapNotNull null
                     val close = line.getOrNull(4) ?: return@mapNotNull null
-                    val dto = IntradayInfoDto(timestamp, close.toDouble())
+                    val dto = IntradayInfoDto(time, close.toDouble())
                     dto.toIntradayInfo()
-                }
+                } /** get close values of last 4 days ordered by hours */
                 .filter {
                     it.date.dayOfMonth == LocalDate.now().minusDays(1).dayOfMonth ||
                             it.date.dayOfMonth == LocalDate.now().minusDays(2).dayOfMonth ||

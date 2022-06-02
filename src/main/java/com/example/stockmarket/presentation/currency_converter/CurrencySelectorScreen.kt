@@ -31,9 +31,9 @@ import com.example.stockmarket.presentation.currency_converter.components.Curren
 import com.example.stockmarket.presentation.currency_converter.components.CurrencySelectorScreenState
 import com.example.stockmarket.ui.theme.CardBackgroundColor
 import com.example.stockmarket.ui.theme.SubTitleColor
-import com.example.stockmarket.ui.theme.TextWhite
+import com.example.stockmarket.ui.theme.SymbolColor
+import com.example.stockmarket.ui.theme.TextColor
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination
 @ExperimentalAnimationApi
@@ -80,7 +80,7 @@ fun CurrencySelectorScreen(
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Filled.Search),
                         contentDescription = "Search",
-                        tint = TextWhite
+                        tint = TextColor
                     )
                 },
                 keyboardOptions = KeyboardOptions.Default.copy(
@@ -96,11 +96,12 @@ fun CurrencySelectorScreen(
                     Text(text = "Search")
                 },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = CardBackgroundColor,
-                    unfocusedBorderColor = MaterialTheme.colors.background,
-                    cursorColor = CardBackgroundColor,
-                    focusedLabelColor = CardBackgroundColor,
-                    textColor = Color.Black
+                    focusedBorderColor = MaterialTheme.colors.onBackground,
+                    unfocusedBorderColor = CardBackgroundColor,
+                    cursorColor = MaterialTheme.colors.onBackground,
+                    focusedLabelColor = SymbolColor,
+                    textColor = MaterialTheme.colors.onBackground,
+                    unfocusedLabelColor = MaterialTheme.colors.onBackground
                 )
             )
 
@@ -169,7 +170,7 @@ fun CurrencyView(
         ) {
             Text(
                 text = currency.code.uppercase(),
-                color = SubTitleColor
+                color = SymbolColor
             )
 
             Spacer(modifier = Modifier.width(32.dp))

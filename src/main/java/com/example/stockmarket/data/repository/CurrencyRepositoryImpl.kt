@@ -1,6 +1,6 @@
 package com.example.stockmarket.data.repository
 
-import com.example.stockmarket.common.ResultWrapper
+import com.example.stockmarket.common.currencyUtil.ResultWrapper
 import com.example.stockmarket.data.remote.IRemoteDataSource
 import com.example.stockmarket.data.remote.dto.toDomain
 import com.example.stockmarket.domain.model.currency_converter.ConversionFactor

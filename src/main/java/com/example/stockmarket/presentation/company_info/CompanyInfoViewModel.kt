@@ -7,11 +7,11 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.stockmarket.domain.repository.StockRepository
-import com.example.stockmarket.common.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.example.stockmarket.common.stockUtil.Result
 
 @HiltViewModel
 class CompanyInfoViewModel @Inject constructor(
@@ -28,14 +28,14 @@ class CompanyInfoViewModel @Inject constructor(
             val companyInfoResult = async { repository.getCompanyInfo(symbol) }
             val intradayInfoResult = async { repository.getIntradayInfo(symbol) }
             when(val result = companyInfoResult.await()) {
-                is Resource.Success -> {
+                is Result.Success -> {
                     state = state.copy(
                         company = result.data,
                         isLoading = false,
                         error = null
                     )
                 }
-                is Resource.Error -> {
+                is Result.Error -> {
                     state = state.copy(
                         isLoading = false,
                         error = result.message,
@@ -45,14 +45,14 @@ class CompanyInfoViewModel @Inject constructor(
                 else -> Unit
             }
             when(val result = intradayInfoResult.await()) {
-                is Resource.Success -> {
+                is Result.Success -> {
                     state = state.copy(
-                        stockInfos = result.data ?: emptyList(),
+                        stockInfo = result.data ?: emptyList(),
                         isLoading = false,
                         error = null
                     )
                 }
-                is Resource.Error -> {
+                is Result.Error -> {
                     state = state.copy(
                         isLoading = false,
                         error = result.message,

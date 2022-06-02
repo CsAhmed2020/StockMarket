@@ -1,8 +1,7 @@
 package com.example.stockmarket.data.remote
 
-import com.example.stockmarket.common.DispatcherProvider
-import com.example.stockmarket.common.ResultWrapper
-import com.example.stockmarket.data.remote.IRemoteDataSource
+import com.example.stockmarket.common.currencyUtil.DispatcherProvider
+import com.example.stockmarket.common.currencyUtil.ResultWrapper
 import com.example.stockmarket.data.remote.dto.PairConversion
 import com.example.stockmarket.data.remote.dto.SupportedCodes
 import com.example.stockmarket.domain.model.currency_converter.Currency

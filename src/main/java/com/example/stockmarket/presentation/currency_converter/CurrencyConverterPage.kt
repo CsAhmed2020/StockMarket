@@ -169,12 +169,12 @@ fun MiddleSection(
         IconButton(modifier = Modifier.background(color = CardBackgroundColor, shape = CircleShape),
             onClick = { onSwitchCurrenciesPressed() }) {
             Icon(imageVector = ImageVector.vectorResource(id =R.drawable.ic_baseline_published_with_changes_24),
-                contentDescription = "Exchange", tint = TextWhite)
+                contentDescription = "Exchange", tint = TextColor)
         }
         Spacer(modifier = Modifier
             .width(150.dp)
             .height(1.dp)
-            .background(color = TextWhite)
+            .background(color = TextColor)
             .padding(horizontal = 5.dp))
 
         IconButton(modifier = Modifier.background(color = CardBackgroundColor, shape = CircleShape),
@@ -183,7 +183,7 @@ fun MiddleSection(
             onEvaluatePressed()
         }) {
             Icon(imageVector = ImageVector.vectorResource(id =R.drawable.ic_currency_exchange), contentDescription = "Convert",
-                tint = TextWhite)
+                tint = TextColor)
         }
     }
 }
@@ -278,7 +278,7 @@ fun CurrencyCard(
                             )
                         },
                         colors = TextFieldDefaults.outlinedTextFieldColors(
-                            focusedBorderColor = TextWhite,
+                            focusedBorderColor = TextColor,
                             unfocusedBorderColor = CardBackgroundColor,
                             backgroundColor = CardBackgroundColor,
                             textColor = MaterialTheme.colors.onBackground

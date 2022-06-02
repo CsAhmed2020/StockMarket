@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
 import com.example.stockmarket.presentation.NavGraphs
-import com.example.stockmarket.presentation.destinations.CurrencyConverterScreenDestination
 import com.example.stockmarket.ui.theme.StockMarketTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 import dagger.hilt.android.AndroidEntryPoint
 

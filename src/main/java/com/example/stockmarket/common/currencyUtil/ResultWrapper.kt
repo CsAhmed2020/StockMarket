@@ -1,4 +1,6 @@
-package com.example.stockmarket.common
+package com.example.stockmarket.common.currencyUtil
+
+//for currency converter
 
 sealed class ResultWrapper<out E,out V>{
     data class Success<out V>(val result: V): ResultWrapper<Nothing, V>()

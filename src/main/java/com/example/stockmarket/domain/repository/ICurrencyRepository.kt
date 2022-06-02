@@ -1,6 +1,6 @@
 package com.example.stockmarket.domain.repository
 
-import com.example.stockmarket.common.ResultWrapper
+import com.example.stockmarket.common.currencyUtil.ResultWrapper
 import com.example.stockmarket.domain.model.currency_converter.ConversionFactor
 import com.example.stockmarket.domain.model.currency_converter.Currency
 
